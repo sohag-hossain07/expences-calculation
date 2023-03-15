@@ -1,35 +1,11 @@
-// get value from input field
-function getValueFromInput(input) {
-  const inputField = document.getElementById(input);
-  const inputValue = parseFloat(inputField.value);
-  inputField.value = "";
-  return inputValue;
-}
-
-// add total expenses in a month
-/* function totalExpensesPerMonth(food, health, rent, cloth) {
-  const foodInputValue = getValueFromInput(food);
-  const healthInputValue = getValueFromInput(health);
-  const rentInputValue = getValueFromInput(rent);
-  const clothInputValue = getValueFromInput(cloth);
-  // add all of the above
-  const newInputTotal =
-    foodInputValue + healthInputValue + rentInputValue + clothInputValue;
-  return newInputTotal;
-} */
-
-// get previous value
-function getPreviousValue(elementId) {
-  const element = document.getElementById(elementId);
-  const previousValueString = element.innerText;
-  const previousValue = parseFloat(previousValueString);
-  return previousValue;
-}
-
-// set new value
-function setInputValue(elementId, value) {
-  const element = document.getElementById(elementId);
-  element.innerText = value;
+// error message
+function errorMessage(elementId, value) {
+  try {
+    if (isNaN(value) === true || value < 0)
+      throw "Please, give a valid number!";
+  } catch (err) {
+    setInputValue(elementId, err);
+  }
 }
 
 // set event handler to the total cost button
@@ -40,6 +16,7 @@ document
     const healthInputValue = getValueFromInput("health");
     const rentInputValue = getValueFromInput("rent");
     const clothInputValue = getValueFromInput("cloth");
+
     // add all of the above
     const newInputTotal =
       foodInputValue + healthInputValue + rentInputValue + clothInputValue;
@@ -48,8 +25,11 @@ document
     const previousValue = getPreviousValue("total-cost");
     // current total expenses
     const currentTotalExpenses = (previousValue + newInputTotal).toFixed(2);
-    // set total expenses
+
+    // set value
     setInputValue("total-cost", currentTotalExpenses);
+
+    errorMessage("cost", newInputTotal);
   });
 
 //   set event handler to the rest balance button
@@ -67,6 +47,9 @@ document
 
     // set the value
     setInputValue("rest-balance", restBalance);
+
+    // err throw
+    errorMessage("rest", incomeValue);
   });
 
 //   set event handler to the savings button
@@ -83,6 +66,16 @@ document
     );
     // set the percentage value
     setInputValue("total-save", percentageOfRestBalance);
+
+    // error throw
+    errorMessage("save", percentage);
+    errorMessage("save", percentageOfRestBalance);
+    try {
+      if (percentageOfRestBalance > restBalance)
+        throw "You have not sufficient balance!";
+    } catch (err) {
+      setInputValue("save", percentageOfRestBalance);
+    }
   });
 
 //   calculate current balance
