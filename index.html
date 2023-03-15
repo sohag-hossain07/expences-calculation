@@ -9,13 +9,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- custom css file -->
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
     <section class="container mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-8 xl:gap-12 mb-16">
         <img
-          src="./economy.webp"
+          src="./images/economy.webp"
           alt="image of economy"
           class="section-image w-full h-full"
         />
@@ -25,8 +25,20 @@
             Calculate your monthly cost
           </h2>
           <div class="w-full">
-            <!-- monthly const -->
-            <div class="monthly-cost">
+            <div class="monthly-income">
+              <h3 class="text-2xl mb-8">Income per month:</h3>
+              <label for="income"
+                >Income:
+                <input
+                  type="text"
+                  class="p-3"
+                  id="income"
+                  placeholder="monthly income"
+              /></label>
+            </div>
+
+            <!-- monthly expenses -->
+            <div class="monthly-cost mt-16">
               <h3 class="text-2xl mb-8">Monthly expenses section:</h3>
               <label for="food"
                 >Food Cost:
@@ -71,16 +83,7 @@
 
             <!-- subtract total balance from income -->
             <div class="rest-balance-section mt-16">
-              <h3 class="text-2xl mb-8">Income per month:</h3>
-              <label for="income"
-                >Income:
-                <input
-                  type="text"
-                  class="p-3"
-                  id="income"
-                  placeholder="monthly income"
-              /></label>
-
+              <h3 class="text-2xl mb-8">Rest Balance:</h3>
               <!-- rest balance after expense -->
               <div class="total flex items-center justify-between mt-10">
                 <button id="rest-balance-button" class="button">
@@ -99,7 +102,7 @@
                   type="text"
                   class="p-3"
                   id="saving"
-                  placeholder="monthly saving"
+                  placeholder="% of savings"
               /></label>
 
               <div class="total flex items-center justify-between mt-10">
@@ -122,6 +125,7 @@
       </div>
     </section>
     <!-- js -->
-    <script src="./script.js"></script>
+    <script src="./js/utilities.js"></script>
+    <script src="./js/script.js"></script>
   </body>
 </html>
