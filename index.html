@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculate monthly cost</title>
+    <!-- tailwind css cdn file link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="container mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-8 xl:gap-12 mb-16">
+        <img
+          src="./economy.webp"
+          alt="image of economy"
+          class="section-image w-full h-full"
+        />
+        <!-- calculate section -->
+        <div class="calculate-section w-9/12 lg:w-11/12 mx-auto">
+          <h2 class="text-5xl text-center lg:text-start mt-12 mb-16">
+            Calculate your monthly cost
+          </h2>
+          <div class="w-full">
+            <!-- monthly const -->
+            <div class="monthly-cost">
+              <h3 class="text-2xl mb-8">Monthly expenses section:</h3>
+              <label for="food"
+                >Food Cost:
+                <input
+                  type="text"
+                  id="food"
+                  class="p-3"
+                  placeholder="food cost"
+              /></label>
+              <label for="health"
+                >Health Cost:
+                <input
+                  type="text"
+                  id="health"
+                  class="p-3"
+                  placeholder="health cost"
+              /></label>
+              <label for="rent"
+                >Rent Cost:
+                <input
+                  type="text"
+                  class="p-3"
+                  id="rent"
+                  placeholder="rent cost"
+              /></label>
+              <label for="cloth"
+                >Cloth Cost:
+                <input
+                  type="text"
+                  class="p-3"
+                  id="cloth"
+                  placeholder="cloth cost"
+              /></label>
+
+              <div class="total flex items-center justify-between mt-10">
+                <button id="total-cost-button" class="button">
+                  Total Cost
+                </button>
+                <p>$<span id="total-cost" class="text-2xl">0.00</span></p>
+              </div>
+            </div>
+
+            <!-- subtract total balance from income -->
+            <div class="rest-balance-section mt-16">
+              <h3 class="text-2xl mb-8">Income per month:</h3>
+              <label for="income"
+                >Income:
+                <input
+                  type="text"
+                  class="p-3"
+                  id="income"
+                  placeholder="monthly income"
+              /></label>
+
+              <!-- rest balance after expense -->
+              <div class="total flex items-center justify-between mt-10">
+                <button id="rest-balance-button" class="button">
+                  Rest Balance
+                </button>
+                <p>$<span id="rest-balance" class="text-2xl">0.00</span></p>
+              </div>
+            </div>
+
+            <!-- saving money per month -->
+            <div class="saving-money-section mt-16">
+              <h3 class="text-2xl mb-8">Saving money per month:</h3>
+              <label for="saving"
+                >Saving money:
+                <input
+                  type="text"
+                  class="p-3"
+                  id="saving"
+                  placeholder="monthly saving"
+              /></label>
+
+              <div class="total flex items-center justify-between mt-10">
+                <button id="total-save-button" class="button">
+                  Total Save
+                </button>
+                <p>$<span id="total-save" class="text-2xl">0.00</span></p>
+              </div>
+            </div>
+
+            <!-- current balance after savings -->
+            <div class="total flex items-center justify-between mt-10">
+              <button id="current-balance-button" class="button">
+                Current Balance
+              </button>
+              <p>$<span id="current-balance" class="text-2xl">0.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- js -->
+    <script src="./script.js"></script>
+  </body>
+</html>
